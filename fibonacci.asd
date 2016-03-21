@@ -2,9 +2,9 @@
 
 (asdf:defsystem #:fibonacci
   :serial t
-  :description "Describe fibonacci here"
-  :author "Your Name <your.name@example.com>"
-  :license "Specify license here"
+  :description "Fibonacci number functions"
+  :author "Martin Dransfield <mdransfield@gmail.com>"
+  :license "GNU GPL 3 (see file LICENSE for details)"
   :components ((:file "package")
                (:file "fibonacci")))
 
