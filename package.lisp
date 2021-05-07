@@ -4,5 +4,6 @@
   (:nicknames #:f)
   (:use #:cl)
   (:export #:fib
-	   #:fibs))
+	   #:fibs
+	   #:fibs-upto))
 

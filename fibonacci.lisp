@@ -7,13 +7,13 @@
 (defconstant phi (/ (1+ sqrt5) 2))
 
 (defun fib (n)
-  "Return the Nth number in the fibonacci sequence.
+  "The Nth number in the fibonacci sequence.
 Defined for n >= 0."
   (check-type n (integer 0 *) "A positive integer")
   (values (round (/ (expt phi n) sqrt5))))
 
 (defun fibs (n)
-  "Return the first N numbers in the fibonacci sequence.
+  "The first N numbers in the fibonacci sequence.
 Defined for n >= 0."
   (check-type n (integer 0 *) "A positive integer")
   (loop for i from 0 below n
@@ -24,3 +24,14 @@ Defined for n >= 0."
 			 (t (+ n2 n1)))
 	collect x))
 
+(defun fibs-upto (limit)
+  "The numbers in the fibonacci sequence up to LIMIT."
+  (check-type limit (integer 1 *) "An integer > 0")
+  (loop for n2 = 0 then n1
+	for n1 = 1 then x
+	for x = 0 then (cond
+			 ((= x 0) 1)
+			 (t (+ n2 n1)))
+	when (< x limit)
+	  collect x
+	while (< x limit)))
