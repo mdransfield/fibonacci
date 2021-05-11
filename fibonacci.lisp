@@ -3,14 +3,15 @@
 
 (in-package #:fibonacci)
 
-(defconstant sqrt5 (sqrt 5))
-(defconstant phi (/ (1+ sqrt5) 2))
+(defconstant +sqrt5+ (cr:sqrt-r 5))
+
+(defconstant +phi+ (cr:/r (cr:+r 1 +sqrt5+) 2))
 
 (defun fib (n)
   "The Nth number in the fibonacci sequence.
 Defined for n >= 0."
   (check-type n (integer 0 *) "A positive integer")
-  (values (round (/ (expt phi n) sqrt5))))
+  (values (cr:round-r (cr:/r (cr:expt-r +phi+ n) +sqrt5+))))
 
 (defun fibs (n)
   "The first N numbers in the fibonacci sequence.
